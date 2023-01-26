@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taskify</title>
+    <script type="module" src="controller.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <div class="columns">
+      <div class="column is-one-fifth">
+        <!--Bulma Menu-->
+        <section class="menu-container">
+          <section class="section">
+            <aside class="menu">
+              <p class="menu-label is-size-5">Taskify</p>
+              <ul class="menu-list">
+                <li class="home"><a>Home</a></li>
+                <li class="today"><a>Today</a></li>
+                <li class="week"><a>Week</a></li>
+                <li class="projects"><a>Projects</a></li>
+              </ul>
+            </aside>
+          </section>
+          <section class="section">
+            <button class="button" id="new-task-button">New Task</button>
+          </section>
+        </section>
+      </div>
+
+      <div class="column">
+        <!--SECTION CREATES MARGIN AROUND COLUMN-->
+        <section class="section">
+          <div class="columns is-multiline task-container">
+            <!--task content-->
+
+            <!--END TASK CONTENT-->
+          </div>
+        </section>
+        <!--END MAIN COLUMN-->
+      </div>
+      <!--END MAIN COLUMNS-->
+    </div>
+
+    <!--Bulma Modal-->
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content has-background-white">
+        <!--Bulma Form-->
+        <form class="task-form">
+          <section class="section">
+            <div class="field">
+              <label class="label">Title</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Title goes here..."
+                  id="task-title"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Details</label>
+              <div class="control">
+                <textarea
+                  class="textarea"
+                  placeholder="Task details..."
+                  id="task-details"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button
+                  class="button is-small is-primary is-outlined low-button"
+                  type="button"
+                  id="is-primary"
+                >
+                  Low
+                </button>
+              </div>
+              <div class="control">
+                <button
+                  class="button is-small is-warning is-outlined medium-button"
+                  type="button"
+                  id="is-warning"
+                >
+                  Medium
+                </button>
+              </div>
+              <div class="control">
+                <button
+                  class="button is-small is-danger is-outlined high-button"
+                  type="button"
+                  id="is-danger"
+                >
+                  High
+                </button>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link">Submit</button>
+              </div>
+              <div class="control">
+                <button
+                  class="button is-link is-light form-cancel"
+                  type="button"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </section>
+        </form>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </body>
+</html>
