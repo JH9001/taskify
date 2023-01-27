@@ -64,6 +64,8 @@ class View {
     taskContainer.insertAdjacentHTML("beforeend", html);
   }
 
+  renderUrgentTasks() {}
+
   clearInput() {
     document.getElementById("task-title").value = "";
     document.getElementById("task-details").value = "";
@@ -108,6 +110,27 @@ class View {
 
   addHandlerHome(handler) {
     home.addEventListener("click", function (e) {
+      e.preventDefault();
+      handler();
+    });
+  }
+
+  addHandlerUrgent(handler) {
+    urgent.addEventListener("click", function (e) {
+      e.preventDefault();
+      handler();
+    });
+  }
+
+  addHandlerUpcoming(handler) {
+    upcoming.addEventListener("click", function (e) {
+      e.preventDefault();
+      handler();
+    });
+  }
+
+  addHandlerAnytime(handler) {
+    anytime.addEventListener("click", function (e) {
       e.preventDefault();
       handler();
     });
