@@ -28,21 +28,29 @@ class View {
   setTaskPriority(index) {
     if (index === 0) return "is-primary";
     if (index === 1) return "is-warning";
-    if (index === 0) return "is-danger";
-    console.log(index);
+    if (index === 2) return "is-danger";
   }
 
   removeTaskPriority() {
     [lowButton, mediumButton, highButton].forEach((button) => {
       button.classList.remove("is-focused");
-      console.log("HH");
     });
   }
 
-  renderTask(title, details) {
+  getTaskPriority() {
+    let priority;
+    [lowButton, mediumButton, highButton].forEach((button, index) => {
+      if (button.classList.contains("is-focused")) {
+        priority = this.setTaskPriority(index);
+      }
+    });
+    return priority;
+  }
+
+  renderTask(title, details, priority) {
     const html = `
     <div class="column is-4">
-      <article class="message">
+      <article class="message ${priority}">
         <div class="message-header">
           <p>${title}</p>
           <button class="delete" aria-label="delete"></button>
@@ -65,7 +73,7 @@ class View {
     const task = {
       title: document.getElementById("task-title").value,
       details: document.getElementById("task-details").value,
-      priority: this.priority,
+      priority: this.getTaskPriority(),
     };
     return task;
   }
