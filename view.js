@@ -8,9 +8,9 @@ const taskForm = document.querySelector(".task-form");
 const formCancel = document.querySelector(".form-cancel");
 
 const home = document.querySelector(".home");
-const today = document.querySelector(".today");
-const week = document.querySelector(".week");
-const projects = document.querySelector(".projects");
+const urgent = document.querySelector(".urgent");
+const upcoming = document.querySelector(".upcoming");
+const anytime = document.querySelector(".anytime");
 
 const lowButton = document.querySelector(".low-button");
 const mediumButton = document.querySelector(".medium-button");
@@ -67,6 +67,9 @@ class View {
   clearInput() {
     document.getElementById("task-title").value = "";
     document.getElementById("task-details").value = "";
+    [lowButton, mediumButton, highButton].forEach((button) => {
+      button.classList.remove("is-focused");
+    });
   }
 
   getFormData() {
