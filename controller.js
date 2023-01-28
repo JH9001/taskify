@@ -1,6 +1,11 @@
 import * as model from "./model.js";
 import View from "./view.js";
 
+const taskDelete = function (e) {
+  const task = e.target.closest(".column");
+  task.remove();
+};
+
 const renderAllTasks = function () {
   View.clearView();
   model.state.taskArr.forEach((task) => {
@@ -47,6 +52,7 @@ const init = function () {
   View.addHandlerUrgent(renderUrgentTasks);
   View.addHandlerUpcoming(renderUpcomingTasks);
   View.addHandlerAnytime(renderAnytimeTasks);
+  View.addHandlerTaskDelete(taskDelete);
 };
 
 init();

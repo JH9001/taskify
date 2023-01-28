@@ -135,6 +135,15 @@ class View {
       handler();
     });
   }
+
+  addHandlerTaskDelete(handler) {
+    taskContainer.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (e.target.classList.contains("delete")) {
+        handler(e);
+      }
+    });
+  }
 }
 
 export default new View();
