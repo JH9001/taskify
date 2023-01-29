@@ -47,9 +47,9 @@ class View {
     return priority;
   }
 
-  renderTask(title, details, priority) {
+  renderTask(title, details, priority, id) {
     const html = `
-    <div class="column is-4">
+    <div class="column is-4" id="${id}">
       <article class="message ${priority}">
         <div class="message-header">
           <p>${title}</p>
@@ -79,6 +79,7 @@ class View {
       title: document.getElementById("task-title").value,
       details: document.getElementById("task-details").value,
       priority: this.getTaskPriority(),
+      id: (Date.now() + "").slice(-10),
     };
     return task;
   }

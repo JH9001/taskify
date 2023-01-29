@@ -2,39 +2,40 @@ import * as model from "./model.js";
 import View from "./view.js";
 
 const taskDelete = function (e) {
-  const task = e.target.closest(".column");
-  task.remove();
+  const taskEl = e.target.closest(".column");
+
+  model.state.taskArr = model.state.taskArr.filter(
+    (task) => task.id !== taskEl.id
+  );
+
+  taskEl.remove();
+};
+
+const renderTasks = function (priority) {
+  View.clearView();
+  model.state.taskArr.forEach((task) => {
+    if (task.priority === priority)
+      View.renderTask(task.title, task.details, task.priority, task.id);
+  });
 };
 
 const renderAllTasks = function () {
   View.clearView();
   model.state.taskArr.forEach((task) => {
-    View.renderTask(task.title, task.details, task.priority);
+    View.renderTask(task.title, task.details, task.priority, task.id);
   });
 };
 
 const renderUrgentTasks = function () {
-  View.clearView();
-  model.state.taskArr.forEach((task) => {
-    if (task.priority === "is-danger")
-      View.renderTask(task.title, task.details, task.priority);
-  });
+  renderTasks("is-danger");
 };
 
 const renderUpcomingTasks = function () {
-  View.clearView();
-  model.state.taskArr.forEach((task) => {
-    if (task.priority === "is-warning")
-      View.renderTask(task.title, task.details, task.priority);
-  });
+  renderTasks("is-warning");
 };
 
 const renderAnytimeTasks = function () {
-  View.clearView();
-  model.state.taskArr.forEach((task) => {
-    if (task.priority === "is-primary")
-      View.renderTask(task.title, task.details, task.priority);
-  });
+  renderTasks("is-primary");
 };
 
 const controlTask = function () {
