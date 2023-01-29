@@ -16,10 +16,6 @@ const lowButton = document.querySelector(".low-button");
 const mediumButton = document.querySelector(".medium-button");
 const highButton = document.querySelector(".high-button");
 
-[modalClose, modalBackground, formCancel].forEach((el) =>
-  el.addEventListener("click", () => modal.classList.remove("is-active"))
-);
-
 class View {
   clearView() {
     taskContainer.innerHTML = "";
@@ -100,6 +96,12 @@ class View {
       modal.classList.remove("is-active");
       handler();
     });
+  }
+
+  addHandlerModal() {
+    [modalClose, modalBackground, formCancel].forEach((el) =>
+      el.addEventListener("click", () => modal.classList.remove("is-active"))
+    );
   }
 
   addHandlerForm() {

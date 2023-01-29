@@ -46,6 +46,7 @@ const controlTask = function () {
 };
 
 const init = function () {
+  View.addHandlerModal();
   View.addHandlerForm();
   View.addHandlerPriority();
   View.addHandlerSubmit(controlTask);
